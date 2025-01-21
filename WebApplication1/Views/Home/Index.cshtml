@@ -1,0 +1,32 @@
+﻿@model IEnumerable<WebApplication1.Models.Book>
+
+@{
+    ViewData["Title"] = "Book List";
+}
+
+<h1>Book List</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.Title</td>
+                <td>@book.Author</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = book.Id })" class="btn btn-warning">Edit</a>
+                    <a href="@Url.Action("Delete", new { id = book.Id })" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Create")" class="btn btn-primary">Add New Book</a>
