@@ -1,10 +1,6 @@
 ﻿@model IEnumerable<WebApplication1.Models.Book>
 
-@{
-    ViewData["Title"] = "Book List";
-}
-
-<h1>Book List</h1>
+<h2>Book List</h2>
 
 <table class="table">
     <thead>
@@ -21,12 +17,12 @@
                 <td>@book.Title</td>
                 <td>@book.Author</td>
                 <td>
-                    <a href="@Url.Action("Edit", new { id = book.Id })" class="btn btn-warning">Edit</a>
-                    <a href="@Url.Action("Delete", new { id = book.Id })" class="btn btn-danger">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@book.Id" class="btn btn-warning">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@book.Id" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
 
-<a href="@Url.Action("Create")" class="btn btn-primary">Add New Book</a>
+<a asp-action="Create" class="btn btn-primary">Add New Book</a>

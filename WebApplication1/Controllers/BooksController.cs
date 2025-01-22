@@ -37,6 +37,7 @@ namespace WebApplication1.Controllers
         public async Task<IActionResult> Index()
         {
             return View(await _context.Books.ToListAsync());
+
         }
 
         // UPDATE
